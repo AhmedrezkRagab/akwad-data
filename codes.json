@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "updatedAt": "2026-09-04",
+  "version": 2,
+  "updatedAt": "2026-09-06",
   "operators": [
     {
       "id": "vodafone",
@@ -13,10 +13,31 @@
           "name": "الأساسية",
           "icon": "bolt",
           "codes": [
-            { "id": "vf_balance", "title": "معرفة الرصيد", "template": "*868*1#", "note": "بيظهر الرصيد والفليكسات والميجا المتبقية", "verified": false },
-            { "id": "vf_mynum", "title": "معرفة رقمي", "template": "*878#", "verified": false },
-            { "id": "vf_remaining", "title": "المتبقي من الباقة", "template": "*868*3#", "verified": false },
-            { "id": "vf_flex", "title": "فليكس", "template": "*888#", "verified": false }
+            {
+              "id": "vf_balance",
+              "title": "معرفة الرصيد",
+              "template": "*868*1#",
+              "note": "بيظهر الرصيد والفليكسات والميجا المتبقية",
+              "verified": false
+            },
+            {
+              "id": "vf_mynum",
+              "title": "معرفة رقمي",
+              "template": "*878#",
+              "verified": false
+            },
+            {
+              "id": "vf_remaining",
+              "title": "المتبقي من الباقة",
+              "template": "*868*3#",
+              "verified": false
+            },
+            {
+              "id": "vf_flex",
+              "title": "فليكس",
+              "template": "*888#",
+              "verified": false
+            }
           ]
         },
         {
@@ -25,15 +46,33 @@
           "icon": "wallet",
           "codes": [
             {
-              "id": "vf_card", "title": "شحن كارت", "template": "*858*{card}#",
-              "params": [{ "key": "card", "label": "رقم الكارت", "keyboard": "number" }],
+              "id": "vf_card",
+              "title": "شحن كارت",
+              "template": "*858*{card}#",
+              "params": [
+                {
+                  "key": "card",
+                  "label": "رقم الكارت",
+                  "keyboard": "number"
+                }
+              ],
               "verified": false
             },
             {
-              "id": "vf_transfer", "title": "تحويل رصيد", "template": "*868*2*{number}*{amount}#",
+              "id": "vf_transfer",
+              "title": "تحويل رصيد",
+              "template": "*868*2*{number}*{amount}#",
               "params": [
-                { "key": "number", "label": "رقم المستقبِل", "keyboard": "phone" },
-                { "key": "amount", "label": "المبلغ", "keyboard": "number" }
+                {
+                  "key": "number",
+                  "label": "رقم المستقبِل",
+                  "keyboard": "phone"
+                },
+                {
+                  "key": "amount",
+                  "label": "المبلغ",
+                  "keyboard": "number"
+                }
               ],
               "verified": false
             }
@@ -44,8 +83,19 @@
           "name": "فودافون كاش",
           "icon": "cash",
           "codes": [
-            { "id": "vf_cash_menu", "title": "القائمة الرئيسية", "template": "*9#", "verified": false },
-            { "id": "vf_cash_care", "title": "خدمة عملاء الكاش", "template": "7001", "isPhone": true, "verified": false }
+            {
+              "id": "vf_cash_menu",
+              "title": "القائمة الرئيسية",
+              "template": "*9#",
+              "verified": false
+            },
+            {
+              "id": "vf_cash_care",
+              "title": "خدمة عملاء الكاش",
+              "template": "7001",
+              "isPhone": true,
+              "verified": false
+            }
           ]
         },
         {
@@ -53,8 +103,20 @@
           "name": "خدمة العملاء",
           "icon": "support",
           "codes": [
-            { "id": "vf_care", "title": "خدمة العملاء", "template": "888", "isPhone": true, "verified": false },
-            { "id": "vf_care2", "title": "خدمة العملاء (من شبكة أخرى)", "template": "8888", "isPhone": true, "verified": false }
+            {
+              "id": "vf_care",
+              "title": "خدمة العملاء",
+              "template": "888",
+              "isPhone": true,
+              "verified": false
+            },
+            {
+              "id": "vf_care2",
+              "title": "خدمة العملاء (من شبكة أخرى)",
+              "template": "8888",
+              "isPhone": true,
+              "verified": false
+            }
           ]
         }
       ]
@@ -70,10 +132,31 @@
           "name": "الأساسية",
           "icon": "bolt",
           "codes": [
-            { "id": "or_balance", "title": "معرفة الرصيد", "template": "#100#", "verified": false },
-            { "id": "or_mynum", "title": "معرفة رقمي", "template": "#110#", "verified": false },
-            { "id": "or_remaining", "title": "المتبقي من الباقة", "template": "#0#", "note": "الدقائق والميجابايت المتبقية", "verified": false },
-            { "id": "or_bundles", "title": "باقات الإنترنت", "template": "#222#", "verified": false }
+            {
+              "id": "or_balance",
+              "title": "معرفة الرصيد",
+              "template": "#100#",
+              "verified": false
+            },
+            {
+              "id": "or_mynum",
+              "title": "معرفة رقمي",
+              "template": "#110#",
+              "verified": false
+            },
+            {
+              "id": "or_remaining",
+              "title": "المتبقي من الباقة",
+              "template": "#0#",
+              "note": "الدقائق والميجابايت المتبقية",
+              "verified": false
+            },
+            {
+              "id": "or_bundles",
+              "title": "باقات الإنترنت",
+              "template": "#222#",
+              "verified": false
+            }
           ]
         },
         {
@@ -82,16 +165,37 @@
           "icon": "wallet",
           "codes": [
             {
-              "id": "or_card", "title": "شحن كارت", "template": "*102*{card}#",
-              "params": [{ "key": "card", "label": "رقم الكارت", "keyboard": "number" }],
+              "id": "or_card",
+              "title": "شحن كارت",
+              "template": "*102*{card}#",
+              "params": [
+                {
+                  "key": "card",
+                  "label": "رقم الكارت",
+                  "keyboard": "number"
+                }
+              ],
               "verified": false
             },
             {
-              "id": "or_pleasecall", "title": "كلمني شكرًا", "template": "*121*{number}#",
-              "params": [{ "key": "number", "label": "رقم الموبايل", "keyboard": "phone" }],
+              "id": "or_pleasecall",
+              "title": "كلمني شكرًا",
+              "template": "*121*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "رقم الموبايل",
+                  "keyboard": "phone"
+                }
+              ],
               "verified": false
             },
-            { "id": "or_loan", "title": "سلفني نت", "template": "#444#", "verified": false }
+            {
+              "id": "or_loan",
+              "title": "سلفني نت",
+              "template": "#444#",
+              "verified": false
+            }
           ]
         },
         {
@@ -99,8 +203,19 @@
           "name": "أورنج كاش",
           "icon": "cash",
           "codes": [
-            { "id": "or_cash_menu", "title": "القائمة الرئيسية", "template": "#7115#", "verified": false },
-            { "id": "or_cash_care", "title": "خدمة عملاء الكاش", "template": "800", "isPhone": true, "verified": false }
+            {
+              "id": "or_cash_menu",
+              "title": "القائمة الرئيسية",
+              "template": "#7115#",
+              "verified": false
+            },
+            {
+              "id": "or_cash_care",
+              "title": "خدمة عملاء الكاش",
+              "template": "800",
+              "isPhone": true,
+              "verified": false
+            }
           ]
         },
         {
@@ -108,8 +223,21 @@
           "name": "خدمة العملاء",
           "icon": "support",
           "codes": [
-            { "id": "or_care", "title": "خدمة العملاء", "template": "400", "isPhone": true, "verified": false },
-            { "id": "or_spam", "title": "الإبلاغ عن رقم مزعج", "template": "505", "note": "ابعت الرقم في رسالة نصية", "isPhone": true, "verified": false }
+            {
+              "id": "or_care",
+              "title": "خدمة العملاء",
+              "template": "400",
+              "isPhone": true,
+              "verified": false
+            },
+            {
+              "id": "or_spam",
+              "title": "الإبلاغ عن رقم مزعج",
+              "template": "505",
+              "note": "ابعت الرقم في رسالة نصية",
+              "isPhone": true,
+              "verified": false
+            }
           ]
         }
       ]
@@ -125,9 +253,24 @@
           "name": "الأساسية",
           "icon": "bolt",
           "codes": [
-            { "id": "et_balance", "title": "معرفة الرصيد", "template": "*888#", "verified": false },
-            { "id": "et_balance2", "title": "معرفة الرصيد (بديل)", "template": "*5040*1#", "verified": false },
-            { "id": "et_mynum", "title": "معرفة رقمي", "template": "*555*5#", "verified": false }
+            {
+              "id": "et_balance",
+              "title": "معرفة الرصيد",
+              "template": "*888#",
+              "verified": false
+            },
+            {
+              "id": "et_balance2",
+              "title": "معرفة الرصيد (بديل)",
+              "template": "*5040*1#",
+              "verified": false
+            },
+            {
+              "id": "et_mynum",
+              "title": "معرفة رقمي",
+              "template": "*555*5#",
+              "verified": false
+            }
           ]
         },
         {
@@ -136,20 +279,46 @@
           "icon": "wallet",
           "codes": [
             {
-              "id": "et_card", "title": "شحن كارت رصيد", "template": "*556*{card}#",
-              "params": [{ "key": "card", "label": "رقم الكارت", "keyboard": "number" }],
-              "verified": false
-            },
-            {
-              "id": "et_card_mix", "title": "شحن كارت مكسات", "template": "*556*1*{card}#",
-              "params": [{ "key": "card", "label": "رقم الكارت", "keyboard": "number" }],
-              "verified": false
-            },
-            {
-              "id": "et_transfer", "title": "تحويل رصيد", "template": "*557*{number}*{amount}#",
+              "id": "et_card",
+              "title": "شحن كارت رصيد",
+              "template": "*556*{card}#",
               "params": [
-                { "key": "number", "label": "رقم المستقبِل", "keyboard": "phone" },
-                { "key": "amount", "label": "المبلغ", "keyboard": "number" }
+                {
+                  "key": "card",
+                  "label": "رقم الكارت",
+                  "keyboard": "number"
+                }
+              ],
+              "verified": false
+            },
+            {
+              "id": "et_card_mix",
+              "title": "شحن كارت مكسات",
+              "template": "*556*1*{card}#",
+              "params": [
+                {
+                  "key": "card",
+                  "label": "رقم الكارت",
+                  "keyboard": "number"
+                }
+              ],
+              "verified": false
+            },
+            {
+              "id": "et_transfer",
+              "title": "تحويل رصيد",
+              "template": "*557*{number}*{amount}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "رقم المستقبِل",
+                  "keyboard": "phone"
+                },
+                {
+                  "key": "amount",
+                  "label": "المبلغ",
+                  "keyboard": "number"
+                }
               ],
               "verified": false
             }
@@ -160,8 +329,19 @@
           "name": "اتصالات كاش",
           "icon": "cash",
           "codes": [
-            { "id": "et_cash_menu", "title": "القائمة الرئيسية", "template": "*777#", "verified": false },
-            { "id": "et_cash_care", "title": "خدمة عملاء الكاش", "template": "778", "isPhone": true, "verified": false }
+            {
+              "id": "et_cash_menu",
+              "title": "القائمة الرئيسية",
+              "template": "*777#",
+              "verified": false
+            },
+            {
+              "id": "et_cash_care",
+              "title": "خدمة عملاء الكاش",
+              "template": "778",
+              "isPhone": true,
+              "verified": false
+            }
           ]
         },
         {
@@ -169,7 +349,13 @@
           "name": "خدمة العملاء",
           "icon": "support",
           "codes": [
-            { "id": "et_care", "title": "خدمة العملاء", "template": "333", "isPhone": true, "verified": false }
+            {
+              "id": "et_care",
+              "title": "خدمة العملاء",
+              "template": "333",
+              "isPhone": true,
+              "verified": false
+            }
           ]
         }
       ]
@@ -185,8 +371,18 @@
           "name": "الأساسية",
           "icon": "bolt",
           "codes": [
-            { "id": "we_balance", "title": "معرفة الرصيد", "template": "*550#", "verified": false },
-            { "id": "we_mynum", "title": "معرفة رقمي", "template": "*550*1#", "verified": false }
+            {
+              "id": "we_balance",
+              "title": "معرفة الرصيد",
+              "template": "*550#",
+              "verified": false
+            },
+            {
+              "id": "we_mynum",
+              "title": "معرفة رقمي",
+              "template": "*550*1#",
+              "verified": false
+            }
           ]
         },
         {
@@ -195,8 +391,16 @@
           "icon": "wallet",
           "codes": [
             {
-              "id": "we_card", "title": "شحن كارت", "template": "*555*{card}#",
-              "params": [{ "key": "card", "label": "رقم الكارت", "keyboard": "number" }],
+              "id": "we_card",
+              "title": "شحن كارت",
+              "template": "*555*{card}#",
+              "params": [
+                {
+                  "key": "card",
+                  "label": "رقم الكارت",
+                  "keyboard": "number"
+                }
+              ],
               "verified": false
             }
           ]
@@ -206,30 +410,87 @@
           "name": "خدمة العملاء",
           "icon": "support",
           "codes": [
-            { "id": "we_care", "title": "خدمة العملاء", "template": "111", "isPhone": true, "verified": false }
+            {
+              "id": "we_care",
+              "title": "خدمة العملاء",
+              "template": "111",
+              "isPhone": true,
+              "verified": false
+            }
           ]
         }
       ]
     }
   ],
   "banks": [
-    { "name": "البنك الأهلي المصري", "phone": "19623" },
-    { "name": "بنك مصر", "phone": "19888" },
-    { "name": "بنك القاهرة", "phone": "16990" },
-    { "name": "البنك التجاري الدولي CIB", "phone": "19666" },
-    { "name": "بنك الإسكندرية", "phone": "19033" },
-    { "name": "بنك QNB الأهلي", "phone": "19700" },
-    { "name": "بنك الاستثمار العربي", "phone": "19555" },
-    { "name": "البنك العربي الأفريقي", "phone": "19555" },
-    { "name": "بنك الكويت الوطني NBK", "phone": "19336" },
-    { "name": "بنك أبو ظبي الأول FAB", "phone": "19985" },
-    { "name": "بنك التعمير والإسكان", "phone": "19995" },
-    { "name": "بنك فيصل الإسلامي", "phone": "19100" },
-    { "name": "بنك البركة", "phone": "16003" },
-    { "name": "بنك الشركة المصرفية العربية الدولية SAIB", "phone": "19985" },
-    { "name": "بنك التنمية الصناعية", "phone": "19390" }
+    {
+      "name": "البنك الأهلي المصري",
+      "phone": "19623"
+    },
+    {
+      "name": "بنك مصر",
+      "phone": "19888"
+    },
+    {
+      "name": "بنك القاهرة",
+      "phone": "16990"
+    },
+    {
+      "name": "البنك التجاري الدولي CIB",
+      "phone": "19666"
+    },
+    {
+      "name": "بنك الإسكندرية",
+      "phone": "19033"
+    },
+    {
+      "name": "بنك QNB الأهلي",
+      "phone": "19700"
+    },
+    {
+      "name": "بنك الاستثمار العربي",
+      "phone": "19555"
+    },
+    {
+      "name": "البنك العربي الأفريقي",
+      "phone": "19555"
+    },
+    {
+      "name": "بنك الكويت الوطني NBK",
+      "phone": "19336"
+    },
+    {
+      "name": "بنك أبو ظبي الأول FAB",
+      "phone": "19985"
+    },
+    {
+      "name": "بنك التعمير والإسكان",
+      "phone": "19995"
+    },
+    {
+      "name": "بنك فيصل الإسلامي",
+      "phone": "19100"
+    },
+    {
+      "name": "بنك البركة",
+      "phone": "16003"
+    },
+    {
+      "name": "بنك الشركة المصرفية العربية الدولية SAIB",
+      "phone": "19985"
+    },
+    {
+      "name": "بنك التنمية الصناعية",
+      "phone": "19390"
+    }
   ],
   "deviceCodes": [
-    { "id": "imei", "title": "رقم IMEI للجهاز", "template": "*#06#", "note": "يشتغل على كل الأجهزة", "verified": true }
+    {
+      "id": "imei",
+      "title": "رقم IMEI للجهاز",
+      "template": "*#06#",
+      "note": "يشتغل على كل الأجهزة",
+      "verified": true
+    }
   ]
 }
