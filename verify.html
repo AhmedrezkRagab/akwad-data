@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>مراجعة الأكواد</title>
+<style>
+  :root{
+    --bg:#f4f5f7; --card:#fff; --line:#e2e5ea; --txt:#111827; --muted:#6b7280;
+    --primary:#1d6fe0; --ok:#059669; --bad:#dc2626; --okbg:#ecfdf5; --badbg:#fef2f2;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--bg:#0f1115;--card:#171a21;--line:#282d38;--txt:#e8eaed;--muted:#9aa3af;
+          --okbg:#0d2a20;--badbg:#2a1315}
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{margin:0;background:var(--bg);color:var(--txt);padding-bottom:96px;
+       font:16px/1.6 system-ui,"Segoe UI",Tahoma,sans-serif}
+  header{position:sticky;top:0;z-index:9;background:var(--card);
+         border-bottom:1px solid var(--line);padding:12px 16px}
+  .row1{display:flex;align-items:center;gap:10px}
+  h1{font-size:17px;margin:0;flex:1}
+  .bar{height:6px;background:var(--line);border-radius:99px;margin-top:10px;overflow:hidden}
+  .bar > i{display:block;height:100%;background:var(--ok);width:0;transition:width .3s}
+  .stat{font-size:13px;color:var(--muted);margin-top:6px}
+  .wrap{padding:12px}
+  .net{font-weight:700;margin:22px 4px 8px;font-size:15px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+        padding:12px 14px;margin-bottom:10px}
+  .card.ok{background:var(--okbg);border-color:#0596694d}
+  .card.bad{background:var(--badbg);border-color:#dc26264d}
+  .t{font-weight:600}
+  .sub{font-size:12px;color:var(--muted)}
+  .code{direction:ltr;text-align:left;font-family:ui-monospace,Menlo,monospace;
+        color:var(--primary);font-weight:700;font-size:15px;margin:4px 0 10px}
+  .acts{display:flex;gap:8px;flex-wrap:wrap}
+  button,a.btn{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--card);
+        color:var(--txt);padding:8px 14px;border-radius:10px;cursor:pointer;
+        text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+  a.btn{background:var(--primary);color:#fff;border-color:transparent}
+  button.ok[aria-pressed=true]{background:var(--ok);color:#fff;border-color:transparent}
+  button.bad[aria-pressed=true]{background:var(--bad);color:#fff;border-color:transparent}
+  input.fix{width:100%;margin-top:10px;padding:9px 12px;border-radius:10px;
+        border:1px solid var(--line);background:var(--bg);color:var(--txt);
+        direction:ltr;text-align:left;font-family:ui-monospace,monospace}
+  footer{position:fixed;bottom:0;left:0;right:0;background:var(--card);
+         border-top:1px solid var(--line);padding:12px 16px;display:flex;gap:10px}
+  footer button{flex:1;justify-content:center}
+  .primary{background:var(--primary);color:#fff;border-color:transparent}
+  .hint{padding:14px;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="row1">
+    <h1>مراجعة الأكواد</h1>
+    <button id="load">فتح codes.json</button>
+    <input type="file" id="file" accept="application/json" hidden>
+  </div>
+  <div class="bar"><i id="bar"></i></div>
+  <div class="stat" id="stat">افتح ملف الأكواد عشان تبدأ</div>
+</header>
+
+<div class="wrap" id="list"></div>
+
+<footer hidden id="foot">
+  <button id="reset">مسح التقدّم</button>
+  <button class="primary" id="save">حفظ codes.json المصحّح</button>
+</footer>
+
+<p class="hint">
+  افتح الصفحة دي <b>على موبايلك</b>: كل كود فيه زرار «اتصل» بيفتح لوحة الاتصال
+  بالكود جاهز. جرّبه، وبعدين علّم ✓ أو ✗. لو غلط اكتب الكود الصح.
+  التقدّم بيتحفظ تلقائيًا لو قفلت الصفحة.
+</p>
+
+<script>
+const KEY = 'akwad_verify_v1';
+let data = null;
+let marks = load();
+
+function load() {
+  try { return JSON.parse(localStorage.getItem(KEY) || '{}'); }
+  catch { return {}; }
+}
+function persist() {
+  try { localStorage.setItem(KEY, JSON.stringify(marks)); } catch {}
+}
+
+document.getElementById('load').onclick = () => document.getElementById('file').click();
+
+// لو الصفحة متقدّمة من سيرفر جنبه codes.json، بنحمّله تلقائيًا —
+// عشان على الموبايل اختيار ملف من التخزين مزعج.
+(async () => {
+  try {
+    const res = await fetch('codes.json', { cache: 'no-store' });
+    if (!res.ok) return;
+    data = await res.json();
+    document.getElementById('load').textContent = 'ملف تاني';
+    render();
+  } catch {}
+})();
+
+document.getElementById('file').onchange = async (e) => {
+  const f = e.target.files[0];
+  if (!f) return;
+  try { data = JSON.parse(await f.text()); }
+  catch (err) { alert('الملف مش JSON سليم: ' + err.message); return; }
+  render();
+};
+
+function allCodes() {
+  const out = [];
+  for (const op of data.operators || []) {
+    for (const cat of op.categories || []) {
+      for (const c of cat.codes || []) out.push({ op, cat, c });
+    }
+  }
+  for (const c of data.deviceCodes || []) {
+    out.push({ op: { name: 'الجهاز' }, cat: { name: 'أكواد الجهاز' }, c });
+  }
+  return out;
+}
+
+/** الكود المعروض: البراميترز بتتحول لمسمياتها زي التطبيق بالظبط. */
+function display(c) {
+  let s = c.template;
+  for (const p of c.params || []) s = s.replaceAll(`{${p.key}}`, p.label);
+  return s;
+}
+
+/** الكود اللي بيتصل — البراميترز بتتشال عشان الاتصال يشتغل. */
+function dialable(c) {
+  let s = c.template;
+  for (const p of c.params || []) s = s.replaceAll(`{${p.key}}`, '');
+  return s;
+}
+
+function render() {
+  const list = document.getElementById('list');
+  list.innerHTML = '';
+  document.getElementById('foot').hidden = false;
+
+  let lastOp = null;
+  for (const { op, cat, c } of allCodes()) {
+    if (op.name !== lastOp) {
+      lastOp = op.name;
+      const h = document.createElement('div');
+      h.className = 'net';
+      h.textContent = op.name;
+      list.append(h);
+    }
+
+    const m = marks[c.id] || {};
+    const card = document.createElement('div');
+    card.className = 'card' + (m.state === 'ok' ? ' ok' : m.state === 'bad' ? ' bad' : '');
+
+    const shown = display(c);
+    card.innerHTML = `
+      <div class="t">${esc(c.title)}</div>
+      <div class="sub">${esc(cat.name)}</div>
+      <div class="code">${esc(shown)}</div>`;
+
+    const acts = document.createElement('div');
+    acts.className = 'acts';
+
+    const call = document.createElement('a');
+    call.className = 'btn';
+    call.href = 'tel:' + encodeURIComponent(dialable(c));
+    call.textContent = '📞 اتصل';
+
+    const ok = mkBtn('ok', '✓ صح', m.state === 'ok');
+    const bad = mkBtn('bad', '✗ غلط', m.state === 'bad');
+
+    const fix = document.createElement('input');
+    fix.className = 'fix';
+    fix.placeholder = 'الكود الصح…';
+    fix.value = m.fixed || '';
+    fix.hidden = m.state !== 'bad';
+    fix.oninput = () => { mark(c.id, { fixed: fix.value }); };
+
+    ok.onclick = () => {
+      const on = ok.getAttribute('aria-pressed') === 'true';
+      mark(c.id, { state: on ? null : 'ok', fixed: '' });
+      render();
+    };
+    bad.onclick = () => {
+      const on = bad.getAttribute('aria-pressed') === 'true';
+      mark(c.id, { state: on ? null : 'bad' });
+      render();
+    };
+
+    acts.append(call, ok, bad);
+    card.append(acts, fix);
+    list.append(card);
+  }
+  updateStat();
+}
+
+function mkBtn(cls, label, pressed) {
+  const b = document.createElement('button');
+  b.className = cls;
+  b.textContent = label;
+  b.setAttribute('aria-pressed', String(!!pressed));
+  return b;
+}
+
+function mark(id, patch) {
+  marks[id] = { ...(marks[id] || {}), ...patch };
+  if (marks[id].state === null) delete marks[id];
+  persist();
+  updateStat();
+}
+
+function updateStat() {
+  if (!data) return;
+  const total = allCodes().length;
+  const done = allCodes().filter(x => marks[x.c.id]?.state).length;
+  const bad = allCodes().filter(x => marks[x.c.id]?.state === 'bad').length;
+  document.getElementById('bar').style.width = (done / total * 100) + '%';
+  document.getElementById('stat').textContent =
+    `${done} من ${total} اتراجعوا · ${bad} محتاج تصحيح`;
+}
+
+document.getElementById('reset').onclick = () => {
+  if (!confirm('تمسح كل التعليمات؟')) return;
+  marks = {};
+  persist();
+  render();
+};
+
+document.getElementById('save').onclick = () => {
+  if (!data) return;
+  let fixed = 0, verified = 0;
+  for (const { c } of allCodes()) {
+    const m = marks[c.id];
+    if (!m) continue;
+    if (m.state === 'ok') { c.verified = true; verified++; }
+    if (m.state === 'bad' && m.fixed && m.fixed.trim()) {
+      c.template = m.fixed.trim();
+      c.verified = true;
+      fixed++;
+    }
+  }
+  data.version = (data.version || 0) + 1;
+  data.updatedAt = new Date().toISOString().slice(0, 10);
+
+  download('codes.json', JSON.stringify(data, null, 2));
+  download('version.json', JSON.stringify({ v: data.version }) + '\n');
+  alert(`تم: ${verified} كود متأكد · ${fixed} كود اتصحّح\nالإصدار بقى ${data.version}`);
+};
+
+function download(name, text) {
+  const blob = new Blob([text], { type: 'application/json;charset=utf-8' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+}
+
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"]/g, c =>
+    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+}
+</script>
+</body>
+</html>
