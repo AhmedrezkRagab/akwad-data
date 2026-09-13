@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "updatedAt": "2026-09-13",
   "operators": [
     {
@@ -18,6 +18,13 @@
               "title": "معرفة الرصيد",
               "template": "*868*1#",
               "note": "بيظهر الرصيد والفليكسات والميجا المتبقية",
+              "verified": false
+            },
+            {
+              "id": "vf_vas155",
+              "title": "إلغاء الخدمات اللي بتسحب الرصيد",
+              "template": "*155#",
+              "note": "كود رسمي ومجاني من الجهاز القومي لتنظيم الاتصالات — بيعرض الخدمات المشترك فيها وتلغي اللي عايزه",
               "verified": false
             },
             {
@@ -75,6 +82,27 @@
                 }
               ],
               "verified": false
+            },
+            {
+              "id": "vf_loan",
+              "title": "سلفني شكرًا — استلاف رصيد",
+              "template": "*3#",
+              "note": "بتحوّلك ٣ جنيه كل مرة بجنيه رسوم، وبيتخصموا من أول شحنة · متاحة بعد شهرين على الكارت",
+              "verified": false
+            },
+            {
+              "id": "vf_pleasecall",
+              "title": "كلمني شكرًا",
+              "template": "*505*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "رقم الموبايل",
+                  "keyboard": "phone"
+                }
+              ],
+              "note": "رسالة «كلمني» للرقم ده · ١٥ قرش للشبكات التانية",
+              "verified": false
             }
           ]
         },
@@ -99,6 +127,99 @@
           ]
         },
         {
+          "id": "vf_calls",
+          "name": "المكالمات",
+          "icon": "call",
+          "codes": [
+            {
+              "id": "vf_fwd_all",
+              "title": "تحويل كل المكالمات",
+              "template": "**21*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتحوّل عليه",
+                  "keyboard": "phone"
+                }
+              ],
+              "note": "المكالمات المحوّلة ممكن تتحسب عليك بسعر مكالمة",
+              "verified": false
+            },
+            {
+              "id": "vf_fwd_busy",
+              "title": "تحويل لو الخط مشغول",
+              "template": "**67*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتحوّل عليه",
+                  "keyboard": "phone"
+                }
+              ],
+              "verified": false
+            },
+            {
+              "id": "vf_fwd_noanswer",
+              "title": "تحويل لو مردتش",
+              "template": "**61*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتحوّل عليه",
+                  "keyboard": "phone"
+                }
+              ],
+              "verified": false
+            },
+            {
+              "id": "vf_fwd_unreachable",
+              "title": "تحويل لو الموبايل مقفول",
+              "template": "**62*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتحوّل عليه",
+                  "keyboard": "phone"
+                }
+              ],
+              "note": "أو برّه التغطية",
+              "verified": false
+            },
+            {
+              "id": "vf_fwd_cancel",
+              "title": "إلغاء كل تحويلات المكالمات",
+              "template": "##002#",
+              "verified": false
+            },
+            {
+              "id": "vf_hide",
+              "title": "إخفاء رقمك في مكالمة",
+              "template": "#31#{number}",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتصل بيه",
+                  "keyboard": "phone"
+                }
+              ],
+              "note": "بيخفي رقمك في المكالمة دي بس — مش كل الشبكات بتسمح بيه",
+              "verified": false
+            },
+            {
+              "id": "vf_wait_on",
+              "title": "تفعيل انتظار المكالمات",
+              "template": "*43#",
+              "verified": false
+            },
+            {
+              "id": "vf_wait_off",
+              "title": "إلغاء انتظار المكالمات",
+              "template": "#43#",
+              "verified": false
+            }
+          ]
+        },
+        {
           "id": "vf_support",
           "name": "خدمة العملاء",
           "icon": "support",
@@ -114,6 +235,14 @@
               "id": "vf_care2",
               "title": "خدمة العملاء (من شبكة أخرى)",
               "template": "8888",
+              "isPhone": true,
+              "verified": false
+            },
+            {
+              "id": "vf_ntra",
+              "title": "شكوى للجهاز القومي للاتصالات",
+              "template": "155",
+              "note": "لو خدمة ماتلغتش أو الرصيد لسه بيتسحب بعد *155#",
               "isPhone": true,
               "verified": false
             }
@@ -136,6 +265,13 @@
               "id": "or_balance",
               "title": "معرفة الرصيد",
               "template": "#100#",
+              "verified": false
+            },
+            {
+              "id": "or_vas155",
+              "title": "إلغاء الخدمات اللي بتسحب الرصيد",
+              "template": "*155#",
+              "note": "كود رسمي ومجاني من الجهاز القومي لتنظيم الاتصالات — بيعرض الخدمات المشترك فيها وتلغي اللي عايزه",
               "verified": false
             },
             {
@@ -192,8 +328,15 @@
             },
             {
               "id": "or_loan",
-              "title": "سلفني نت",
+              "title": "سلفني رصيد — استلاف رصيد",
               "template": "#444#",
+              "note": "تستلف ٧ جنيه متضمنة ٢ جنيه رسوم، ولحد ٧٢ جنيه حسب استخدامك · لما رصيدك يقل عن ٥ جنيه",
+              "verified": false
+            },
+            {
+              "id": "or_loan2",
+              "title": "سلفني رصيد (كود تاني)",
+              "template": "#8#",
               "verified": false
             }
           ]
@@ -219,6 +362,99 @@
           ]
         },
         {
+          "id": "or_calls",
+          "name": "المكالمات",
+          "icon": "call",
+          "codes": [
+            {
+              "id": "or_fwd_all",
+              "title": "تحويل كل المكالمات",
+              "template": "**21*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتحوّل عليه",
+                  "keyboard": "phone"
+                }
+              ],
+              "note": "المكالمات المحوّلة ممكن تتحسب عليك بسعر مكالمة",
+              "verified": false
+            },
+            {
+              "id": "or_fwd_busy",
+              "title": "تحويل لو الخط مشغول",
+              "template": "**67*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتحوّل عليه",
+                  "keyboard": "phone"
+                }
+              ],
+              "verified": false
+            },
+            {
+              "id": "or_fwd_noanswer",
+              "title": "تحويل لو مردتش",
+              "template": "**61*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتحوّل عليه",
+                  "keyboard": "phone"
+                }
+              ],
+              "verified": false
+            },
+            {
+              "id": "or_fwd_unreachable",
+              "title": "تحويل لو الموبايل مقفول",
+              "template": "**62*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتحوّل عليه",
+                  "keyboard": "phone"
+                }
+              ],
+              "note": "أو برّه التغطية",
+              "verified": false
+            },
+            {
+              "id": "or_fwd_cancel",
+              "title": "إلغاء كل تحويلات المكالمات",
+              "template": "##002#",
+              "verified": false
+            },
+            {
+              "id": "or_hide",
+              "title": "إخفاء رقمك في مكالمة",
+              "template": "#31#{number}",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتصل بيه",
+                  "keyboard": "phone"
+                }
+              ],
+              "note": "بيخفي رقمك في المكالمة دي بس — مش كل الشبكات بتسمح بيه",
+              "verified": false
+            },
+            {
+              "id": "or_wait_on",
+              "title": "تفعيل انتظار المكالمات",
+              "template": "*43#",
+              "verified": false
+            },
+            {
+              "id": "or_wait_off",
+              "title": "إلغاء انتظار المكالمات",
+              "template": "#43#",
+              "verified": false
+            }
+          ]
+        },
+        {
           "id": "or_support",
           "name": "خدمة العملاء",
           "icon": "support",
@@ -235,6 +471,14 @@
               "title": "الإبلاغ عن رقم مزعج",
               "template": "505",
               "note": "ابعت الرقم في رسالة نصية",
+              "isPhone": true,
+              "verified": false
+            },
+            {
+              "id": "or_ntra",
+              "title": "شكوى للجهاز القومي للاتصالات",
+              "template": "155",
+              "note": "لو خدمة ماتلغتش أو الرصيد لسه بيتسحب بعد *155#",
               "isPhone": true,
               "verified": false
             }
@@ -257,6 +501,13 @@
               "id": "et_balance",
               "title": "معرفة الرصيد",
               "template": "*888#",
+              "verified": false
+            },
+            {
+              "id": "et_vas155",
+              "title": "إلغاء الخدمات اللي بتسحب الرصيد",
+              "template": "*155#",
+              "note": "كود رسمي ومجاني من الجهاز القومي لتنظيم الاتصالات — بيعرض الخدمات المشترك فيها وتلغي اللي عايزه",
               "verified": false
             },
             {
@@ -321,6 +572,39 @@
                 }
               ],
               "verified": false
+            },
+            {
+              "id": "et_loan",
+              "title": "سوبر سلفني — استلاف رصيد",
+              "template": "*911#",
+              "note": "من ٥ لـ٧٠ جنيه لما رصيدك يقل عن ١.٥ جنيه — بيتسدد من أول شحنة",
+              "verified": false
+            },
+            {
+              "id": "et_loan_full",
+              "title": "سوبر سلفني — المبلغ كله مرة واحدة",
+              "template": "*911*1#",
+              "verified": false
+            },
+            {
+              "id": "et_loan_balance",
+              "title": "رصيد سلفني",
+              "template": "*240#",
+              "verified": false
+            },
+            {
+              "id": "et_pleasecall",
+              "title": "كلمني شكرًا",
+              "template": "*111*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "رقم الموبايل",
+                  "keyboard": "phone"
+                }
+              ],
+              "note": "رسالتين ببلاش لأرقام اتصالات · ١٦ قرش لباقي الشبكات",
+              "verified": false
             }
           ]
         },
@@ -345,6 +629,99 @@
           ]
         },
         {
+          "id": "et_calls",
+          "name": "المكالمات",
+          "icon": "call",
+          "codes": [
+            {
+              "id": "et_fwd_all",
+              "title": "تحويل كل المكالمات",
+              "template": "**21*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتحوّل عليه",
+                  "keyboard": "phone"
+                }
+              ],
+              "note": "المكالمات المحوّلة ممكن تتحسب عليك بسعر مكالمة",
+              "verified": false
+            },
+            {
+              "id": "et_fwd_busy",
+              "title": "تحويل لو الخط مشغول",
+              "template": "**67*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتحوّل عليه",
+                  "keyboard": "phone"
+                }
+              ],
+              "verified": false
+            },
+            {
+              "id": "et_fwd_noanswer",
+              "title": "تحويل لو مردتش",
+              "template": "**61*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتحوّل عليه",
+                  "keyboard": "phone"
+                }
+              ],
+              "verified": false
+            },
+            {
+              "id": "et_fwd_unreachable",
+              "title": "تحويل لو الموبايل مقفول",
+              "template": "**62*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتحوّل عليه",
+                  "keyboard": "phone"
+                }
+              ],
+              "note": "أو برّه التغطية",
+              "verified": false
+            },
+            {
+              "id": "et_fwd_cancel",
+              "title": "إلغاء كل تحويلات المكالمات",
+              "template": "##002#",
+              "verified": false
+            },
+            {
+              "id": "et_hide",
+              "title": "إخفاء رقمك في مكالمة",
+              "template": "#31#{number}",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتصل بيه",
+                  "keyboard": "phone"
+                }
+              ],
+              "note": "بيخفي رقمك في المكالمة دي بس — مش كل الشبكات بتسمح بيه",
+              "verified": false
+            },
+            {
+              "id": "et_wait_on",
+              "title": "تفعيل انتظار المكالمات",
+              "template": "*43#",
+              "verified": false
+            },
+            {
+              "id": "et_wait_off",
+              "title": "إلغاء انتظار المكالمات",
+              "template": "#43#",
+              "verified": false
+            }
+          ]
+        },
+        {
           "id": "et_support",
           "name": "خدمة العملاء",
           "icon": "support",
@@ -353,6 +730,14 @@
               "id": "et_care",
               "title": "خدمة العملاء",
               "template": "333",
+              "isPhone": true,
+              "verified": false
+            },
+            {
+              "id": "et_ntra",
+              "title": "شكوى للجهاز القومي للاتصالات",
+              "template": "155",
+              "note": "لو خدمة ماتلغتش أو الرصيد لسه بيتسحب بعد *155#",
               "isPhone": true,
               "verified": false
             }
@@ -378,9 +763,22 @@
               "verified": false
             },
             {
+              "id": "we_vas155",
+              "title": "إلغاء الخدمات اللي بتسحب الرصيد",
+              "template": "*155#",
+              "note": "كود رسمي ومجاني من الجهاز القومي لتنظيم الاتصالات — بيعرض الخدمات المشترك فيها وتلغي اللي عايزه",
+              "verified": false
+            },
+            {
               "id": "we_mynum",
               "title": "معرفة رقمي",
               "template": "*550*1#",
+              "verified": false
+            },
+            {
+              "id": "we_remaining",
+              "title": "المتبقي من الباقة",
+              "template": "*414#",
               "verified": false
             }
           ]
@@ -402,6 +800,118 @@
                 }
               ],
               "verified": false
+            },
+            {
+              "id": "we_loan",
+              "title": "سلفني شكرًا — استلاف رصيد",
+              "template": "*504#",
+              "verified": false
+            },
+            {
+              "id": "we_pleasecall",
+              "title": "كلمني شكرًا",
+              "template": "*515*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "رقم الموبايل",
+                  "keyboard": "phone"
+                }
+              ],
+              "verified": false
+            }
+          ]
+        },
+        {
+          "id": "we_calls",
+          "name": "المكالمات",
+          "icon": "call",
+          "codes": [
+            {
+              "id": "we_fwd_all",
+              "title": "تحويل كل المكالمات",
+              "template": "**21*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتحوّل عليه",
+                  "keyboard": "phone"
+                }
+              ],
+              "note": "المكالمات المحوّلة ممكن تتحسب عليك بسعر مكالمة",
+              "verified": false
+            },
+            {
+              "id": "we_fwd_busy",
+              "title": "تحويل لو الخط مشغول",
+              "template": "**67*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتحوّل عليه",
+                  "keyboard": "phone"
+                }
+              ],
+              "verified": false
+            },
+            {
+              "id": "we_fwd_noanswer",
+              "title": "تحويل لو مردتش",
+              "template": "**61*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتحوّل عليه",
+                  "keyboard": "phone"
+                }
+              ],
+              "verified": false
+            },
+            {
+              "id": "we_fwd_unreachable",
+              "title": "تحويل لو الموبايل مقفول",
+              "template": "**62*{number}#",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتحوّل عليه",
+                  "keyboard": "phone"
+                }
+              ],
+              "note": "أو برّه التغطية",
+              "verified": false
+            },
+            {
+              "id": "we_fwd_cancel",
+              "title": "إلغاء كل تحويلات المكالمات",
+              "template": "##002#",
+              "verified": false
+            },
+            {
+              "id": "we_hide",
+              "title": "إخفاء رقمك في مكالمة",
+              "template": "#31#{number}",
+              "params": [
+                {
+                  "key": "number",
+                  "label": "الرقم اللي هتتصل بيه",
+                  "keyboard": "phone"
+                }
+              ],
+              "note": "بيخفي رقمك في المكالمة دي بس — مش كل الشبكات بتسمح بيه",
+              "verified": false
+            },
+            {
+              "id": "we_wait_on",
+              "title": "تفعيل انتظار المكالمات",
+              "template": "*43#",
+              "verified": false
+            },
+            {
+              "id": "we_wait_off",
+              "title": "إلغاء انتظار المكالمات",
+              "template": "#43#",
+              "verified": false
             }
           ]
         },
@@ -414,6 +924,14 @@
               "id": "we_care",
               "title": "خدمة العملاء",
               "template": "111",
+              "isPhone": true,
+              "verified": false
+            },
+            {
+              "id": "we_ntra",
+              "title": "شكوى للجهاز القومي للاتصالات",
+              "template": "155",
+              "note": "لو خدمة ماتلغتش أو الرصيد لسه بيتسحب بعد *155#",
               "isPhone": true,
               "verified": false
             }
