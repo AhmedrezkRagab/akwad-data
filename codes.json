@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "updatedAt": "2026-09-06",
+  "version": 3,
+  "updatedAt": "2026-09-13",
   "operators": [
     {
       "id": "vodafone",
@@ -492,5 +492,66 @@
       "note": "يشتغل على كل الأجهزة",
       "verified": true
     }
-  ]
+  ],
+  "emergencyNumbers": [
+    {
+      "name": "النجدة",
+      "phone": "122",
+      "note": "الشرطة",
+      "verified": false
+    },
+    {
+      "name": "الإسعاف",
+      "phone": "123",
+      "verified": false
+    },
+    {
+      "name": "المطافي",
+      "phone": "180",
+      "verified": false
+    },
+    {
+      "name": "أعطال الكهرباء",
+      "phone": "121",
+      "verified": false
+    },
+    {
+      "name": "أعطال المياه",
+      "phone": "125",
+      "verified": false
+    },
+    {
+      "name": "أعطال الغاز",
+      "phone": "129",
+      "verified": false
+    },
+    {
+      "name": "شكاوى الحكومة",
+      "phone": "16528",
+      "verified": false
+    },
+    {
+      "name": "إسعاف الطرق السريعة",
+      "phone": "01221110000",
+      "verified": false
+    }
+  ],
+  "balanceReaders": {
+    "vodafone": {
+      "code": "*868*1#",
+      "pattern": "([0-9]+(?:[.,][0-9]+)?)\\s*(?:جنيه|ج\\.م|LE|EGP)"
+    },
+    "orange": {
+      "code": "#100#",
+      "pattern": "([0-9]+(?:[.,][0-9]+)?)\\s*(?:جنيه|ج\\.م|LE|EGP)"
+    },
+    "etisalat": {
+      "code": "*888#",
+      "pattern": "([0-9]+(?:[.,][0-9]+)?)\\s*(?:جنيه|ج\\.م|LE|EGP)"
+    },
+    "we": {
+      "code": "*550#",
+      "pattern": "([0-9]+(?:[.,][0-9]+)?)\\s*(?:جنيه|ج\\.م|LE|EGP)"
+    }
+  }
 }
